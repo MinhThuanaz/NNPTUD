@@ -4,7 +4,7 @@ let productSchema = require('../schemas/product')
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
-  let products = await productSchema.find({})
+  let products = await productSchema.find({}).populate('category')
   res.status(200).send({
     success:true,
     data:products
